@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<h1>注册成功，3秒后自动跳转到主页，如果不想跳转，请点击这里 <input type="button" value="留在这里" id="btn"></h1>
+</body>
+<script>
+/* 定时器是浏览器提供的一个功能
+    可以实现倒计时的效果
+
+  定期分为两个
+
+    一次性的
+      setTimeout(函数,间隔)
+      可以实现延迟一段时间就去做的效果
+      返回值就是它的id
+    永久性的
+      setInterval(函数,间隔)
+      可以实现每隔一段时间，就去做一件事的效果
+
+  定时器是可以停止的
+    clearTimeout(定时器id)
+*/
+
+/* 注册成功了，会告诉用户，多少秒之后，会自动跳转到主页，就可以使用定时器来实现 */
+// let timetouId = setTimeout(function(){
+//   location.href = 'http://baidu.com';
+// },3000);
+// console.log(timetouId);
+// let btn = document.querySelector('#btn');
+// btn.onclick = function(){
+//   // 直接调用停止的API，进行停止
+//   clearTimeout(timetouId);
+//   console.log('停止了');
+// }
+
+
+/* 使用永久性的定时器实现 报时的效果 */
+let intervalId= setInterval(function(){
+  var date = new Date();
+  console.log(date);
+},1000);
+let btn = document.querySelector('#btn');
+btn.onclick = function(){
+  clearInterval(intervalId);
+}
+</script>
+</html>
